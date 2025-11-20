@@ -1,0 +1,49 @@
+d419771af0e33d') in 0.0064506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/rinkinnetsu/01/Stage Level Screen.png
+  artifactKey: Guid(fd38af8845b3a1a4099728a3719ee985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/Stage Level Screen.png using Guid(fd38af8845b3a1a4099728a3719ee985) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14459ede1a8b884cde9fa7f92999f69e') in 0.0132907 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/rinkinnetsu/01/Home Screen (new).png
+  artifactKey: Guid(35386dd503b4eef40a2461d8c8791937) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/Home Screen (new).png using Guid(35386dd503b4eef40a2461d8c8791937) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1a66b5d23a86c0e853867e2df400e2b') in 0.0080122 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/rinkinnetsu/01/111111111.png
+  artifactKey: Guid(125be3e94a4da3a4c8a9ec3af78b86cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/111111111.png using Guid(125be3e94a4da3a4c8a9ec3af78b86cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1a2ecd619bb99fc4fd0ba297d78e1d37') in 0.0075054 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/rinkinnetsu/01/How_to_play_Page_4.png
+  artifactKey: Guid(5b35b23523803a44581d887454e046c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/How_to_play_Page_4.png using Guid(5b35b23523803a44581d887454e046c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e40991a08edbe3512af8473c9d31c21b') in 0.0066101 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/rinkinnetsu/01/Start3.png
+  artifactKey: Guid(e006a109abb60dd41827193daac5b7fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/Start3.png using Guid(e006a109abb60dd41827193daac5b7fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dfc0a4887a5d2f6c29db1731d8f28502') in 0.0059347 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/rinkinnetsu/01/Setting Screen.png
+  artifactKey: Guid(63a33d3ecf886ea499ce96f0eeae0396) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/rinkinnetsu/01/Setting Screen.png using Guid(63a33d3ecf886ea499ce96f0eeae0396) Importer
