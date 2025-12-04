@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public bool puzzleCompleted = false;
 
     // เก็บตำแหน่งผู้เล่นล่าสุด
-    public Vector3 lastPlayerPosition;
-    public bool hasSavedPosition = false;
-
+    public Vector3 lastRealPos;
+    public Vector3 lastShadowPos;
+    public bool hasSavedPos = false;
     void Awake()
     {
         if (Instance == null)

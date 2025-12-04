@@ -16,15 +16,25 @@ public class WorldSwitcher : MonoBehaviour
         realPlayer.SetActive(true);
         shadowPlayer.SetActive(true);
 
-        // เริ่มให้ Shadow อยู่ข้าง ๆ Player
-        shadowPlayer.transform.position = realPlayer.transform.position + Vector3.right * 1.5f;
+        // ---------------------------
+        // RESTORE POSITION FIX
+        // ---------------------------
+        if (GameManager.Instance != null && GameManager.Instance.hasSavedPos)
+        {
+            realPlayer.transform.position = GameManager.Instance.lastRealPos;
+            shadowPlayer.transform.position = GameManager.Instance.lastShadowPos;
+        }
+        else
+        {
+            shadowPlayer.transform.position = realPlayer.transform.position + Vector3.right * 1.5f;
+        }
 
         SetPlayerControl(realPlayer, true);
         SetPlayerControl(shadowPlayer, false);
 
         cameraFollow?.SetTarget(realPlayer.transform);
 
-        // ป้องกันการชนกัน
+        // Prevent collision between real & shadow
         Collider2D realCol = realPlayer.GetComponent<Collider2D>();
         Collider2D shadowCol = shadowPlayer.GetComponent<Collider2D>();
         if (realCol != null && shadowCol != null)

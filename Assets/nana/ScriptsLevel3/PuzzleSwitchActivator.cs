@@ -21,11 +21,14 @@ public class PuzzleSwitchActivator : MonoBehaviour
                     GameManager.Instance.puzzleCompleted = false;
 
                 // บันทึกตำแหน่งผู้เล่น
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-                if (player != null)
+                GameObject real = GameObject.FindWithTag("Player");
+                GameObject shadow = GameObject.FindWithTag("Shadow");
+
+                if (real != null && shadow != null)
                 {
-                    GameManager.Instance.lastPlayerPosition = player.transform.position;
-                    GameManager.Instance.hasSavedPosition = true;
+                    GameManager.Instance.lastRealPos = real.transform.position;
+                    GameManager.Instance.lastShadowPos = shadow.transform.position;
+                    GameManager.Instance.hasSavedPos = true;
                 }
 
                 // โหลด Puzzle Scene

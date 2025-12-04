@@ -2,12 +2,19 @@
 
 public class PlayerRespaw : MonoBehaviour
 {
+    [SerializeField] private bool isRealPlayer = true;
+    // ตั้งใน Inspector: 
+    // ✔ Real Player = true
+    // ✔ Shadow Player = false
+
     void Start()
     {
-        if (GameManager.Instance != null && GameManager.Instance.hasSavedPosition)
+        if (!isRealPlayer) return;  // ❗ ป้องกัน Shadow ถูกย้ายตำแหน่ง
+
+        if (GameManager.Instance != null && GameManager.Instance.hasSavedPos)
         {
-            // ✅ ย้าย Player กลับไปตำแหน่งล่าสุด
-            transform.position = GameManager.Instance.lastPlayerPosition;
+            // ย้ายเฉพาะตัวจริงกลับไปจุดล่าสุด
+            transform.position = GameManager.Instance.lastRealPos;
         }
     }
 }

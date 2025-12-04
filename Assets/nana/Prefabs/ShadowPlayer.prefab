@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4167438093603046630}
   - component: {fileID: 8331447748345826147}
   - component: {fileID: 1891776409467361824}
+  - component: {fileID: 3228639960263448862}
   m_Layer: 15
   m_Name: ShadowPlayer
   m_TagString: Shadow
@@ -281,6 +282,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6a1fcfd23f593489ca027c53cda5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRealPlayer: 0
+--- !u!114 &3228639960263448862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5457561733160602199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7ad016d0300ed43a8c39ffa975db03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockTag: gravel
+  ignoreRadius: 1
+  rockLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5517211258933032985
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/rinkinnetsu/01/Levels.unity
     guid: 0db59939ad0c66948820f5e0e87aa1f3
   - enabled: 1
-    path: Assets/rinkinnetsu/01/Option.unity
+    path: Assets/rinkinnetsu/01/03/Option.unity
     guid: a17aabee0b08def4dbfff1a6d4450a3b
   - enabled: 1
     path: Assets/nana/Level1.unity
