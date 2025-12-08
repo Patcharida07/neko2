@@ -13640,7 +13640,7 @@ Transform:
   m_GameObject: {fileID: 1516788772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0387, y: -0.0881, z: 0}
+  m_LocalPosition: {x: 2.02, y: -0.04, z: 0}
   m_LocalScale: {x: 1.7710862, y: 1.2284338, z: 1.4808912}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18215,7 +18215,10 @@ MonoBehaviour:
   playerPoint: {fileID: 1435013858}
   shadowPoint: {fileID: 348885644}
   dialogueText: {fileID: 108656773}
-  offset: {x: 0, y: 2, z: 0}
+  playerOffset: {x: 0, y: 1, z: 0}
+  shadowOffset: {x: 0, y: 1, z: 0}
+  typeSpeed: 0.04
+  players: []
 --- !u!1 &2046685598
 GameObject:
   m_ObjectHideFlags: 0
@@ -19286,11 +19289,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2677806594637194401, guid: fd44916e440efec41a897a3d83407f65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.97
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 2677806594637194401, guid: fd44916e440efec41a897a3d83407f65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2677806594637194401, guid: fd44916e440efec41a897a3d83407f65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19342,7 +19345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8539490966334906304, guid: fd44916e440efec41a897a3d83407f65, type: 3}
       propertyPath: m_Offset.y
-      value: -0.007789716
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8861387535712068497, guid: fd44916e440efec41a897a3d83407f65, type: 3}
       propertyPath: m_Mass

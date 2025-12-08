@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a99151f5a27affc4ca472da896871f78
+guid: e006a109abb60dd41827193daac5b7fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3059929991795831455
-    second: help_0
+      213: 3747169965272611854
+    second: Start3_0
+  - first:
+      213: -8430048072212672983
+    second: Start3_1
+  - first:
+      213: -5561847382935591095
+    second: Start3_2
+  - first:
+      213: 8487128013590688475
+    second: Start3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,27 +105,66 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: help_0
+      name: Start3_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 97
-        height: 97
+        x: 65
+        y: 10
+        width: 117
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f92fd868d1e077a20800000000000000
-      internalID: 3059929991795831455
+      spriteID: e0c3615ea3f900430800000000000000
+      internalID: 3747169965272611854
       vertices: []
       indices: 
       edges: []
@@ -125,7 +173,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 514372a6fb59db64eafc9e4d6f3c41a4
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +183,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      help_0: 3059929991795831455
+      Start3_0: 3747169965272611854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

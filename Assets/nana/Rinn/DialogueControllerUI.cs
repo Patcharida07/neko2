@@ -14,23 +14,19 @@ public class DialogueControllerUI : MonoBehaviour
 
     [Header("UI References")]
     public TextMeshProUGUI dialogueText;
-    public Vector3 offset = new Vector3(0, 2f, 0);
+
+    [Header("Word Position Offset")]
+    public Vector3 offset = new Vector3(0, 0.1f, 0);
 
     private Transform currentTarget;
 
-    // 自动打字机
     public float typeSpeed = 0.04f;
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
-    // 两个角色的 PlayerController（放 Player 和 ShadowPlayer）
     [Header("Players Movement Scripts")]
     public PlayerController[] players;
 
-
-    // ===========================
-    // 开始对话
-    // ===========================
     public void StartDialogue(List<DialogueLine> lines)
     {
         if (lines == null || lines.Count == 0) return;
@@ -38,7 +34,7 @@ public class DialogueControllerUI : MonoBehaviour
         dialogues = lines;
         currentIndex = 0;
 
-        FreezeMovement();   // 停止两个角色
+        FreezeMovement();
 
         ShowDialogue();
     }
@@ -52,7 +48,6 @@ public class DialogueControllerUI : MonoBehaviour
         {
             if (isTyping)
             {
-                // 跳过剩余打字
                 StopCoroutine(typingCoroutine);
                 dialogueText.text = dialogues[currentIndex].text;
                 isTyping = false;
@@ -63,7 +58,6 @@ public class DialogueControllerUI : MonoBehaviour
             }
         }
 
-        // 让文字跟随头顶
         if (dialogueText != null && currentTarget != null)
         {
             Vector3 pos = Camera.main.WorldToScreenPoint(currentTarget.position + offset);
@@ -72,9 +66,6 @@ public class DialogueControllerUI : MonoBehaviour
     }
 
 
-    // ===========================
-    // 下一句
-    // ===========================
     private void NextDialogue()
     {
         currentIndex++;
@@ -89,10 +80,6 @@ public class DialogueControllerUI : MonoBehaviour
         }
     }
 
-
-    // ===========================
-    // 显示一句话
-    // ===========================
     private void ShowDialogue()
     {
         DialogueLine line = dialogues[currentIndex];
@@ -105,10 +92,6 @@ public class DialogueControllerUI : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeText(line.text));
     }
 
-
-    // ===========================
-    // 自动打字机协程
-    // ===========================
     IEnumerator TypeText(string fullText)
     {
         isTyping = true;
@@ -123,10 +106,6 @@ public class DialogueControllerUI : MonoBehaviour
         isTyping = false;
     }
 
-
-    // ===========================
-    // 结束对话
-    // ===========================
     private void EndDialogue()
     {
         dialogueText.text = "";
@@ -134,37 +113,42 @@ public class DialogueControllerUI : MonoBehaviour
         currentIndex = 0;
         currentTarget = null;
 
-        UnfreezeMovement();  // 恢复两个角色
+        UnfreezeMovement();
     }
 
-
-    // ===========================
-    // 冻结移动（适配你的 PlayerController）
-    // ===========================
+    // ============================================================
+    // TRUE FREEZE MOVEMENT
+    // ============================================================
     private void FreezeMovement()
     {
         foreach (var pc in players)
         {
             if (pc == null) continue;
 
-            pc.SetCanMove(false); // 禁止移动
+            pc.SetCanMove(false);
 
-            // 停止滑动
             if (pc.TryGetComponent<Rigidbody2D>(out var rb))
-                rb.linearVelocity = Vector2.zero;
+            {
+                rb.linearVelocity = Vector2.zero;      // ← 正确字段 !!!
+                rb.angularVelocity = 0f;
+
+                rb.constraints = RigidbodyConstraints2D.FreezeAll; // ★★★ 完全冻结
+            }
         }
     }
 
-    // ===========================
-    // 恢复移动
-    // ===========================
     private void UnfreezeMovement()
     {
         foreach (var pc in players)
         {
             if (pc == null) continue;
 
-            pc.SetCanMove(true); // 恢复移动
+            pc.SetCanMove(true);
+
+            if (pc.TryGetComponent<Rigidbody2D>(out var rb))
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
         }
     }
 }

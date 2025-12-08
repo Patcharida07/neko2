@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 4026266a586726446b05171a7fbe083e
+guid: 0021e672d685aba4498b1f97fc0e661c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -359973566948834732
-    second: how_to_play3_0
+      213: 3812115351872526657
+    second: exit3_0
   - first:
-      213: -5839855149449473482
-    second: how_to_play3_1
+      213: -751664249400160174
+    second: exit3_1
+  - first:
+      213: 7832759623925148699
+    second: exit3_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,17 +102,56 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: how_to_play3_0
+      name: exit3_0
       rect:
         serializedVersion: 2
         x: 78
         y: 8
-        width: 93
-        height: 32
+        width: 96
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4520c75b2fd110bf0800000000000000
-      internalID: -359973566948834732
+      spriteID: 149dc2f07ba57e430800000000000000
+      internalID: 3812115351872526657
       vertices: []
       indices: 
       edges: []
@@ -128,7 +170,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c882f4c249af06e49a5d78bfb15a5a97
+    spriteID: ba03284541421dd429dec135369de35d
     internalID: 0
     vertices: []
     indices: 
@@ -138,7 +180,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      how_to_play3_0: -359973566948834732
+      exit3_0: 3812115351872526657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
