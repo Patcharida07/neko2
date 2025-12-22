@@ -7692,8 +7692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86517306b958da041a4d27ada213afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: -2
+  SpotlightRoot1: {fileID: 0}
+  SpotlightRoot2: {fileID: 0}
   speed: 2
+  meetWaitTime: 3
 --- !u!4 &890702769
 Transform:
   m_ObjectHideFlags: 0
@@ -9130,6 +9132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAmplitude: 3
   moveSpeed: 0.5
+  waitTime: 3
 --- !u!4 &1041384970
 Transform:
   m_ObjectHideFlags: 0
@@ -11710,8 +11713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86517306b958da041a4d27ada213afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 2
+  SpotlightRoot1: {fileID: 0}
+  SpotlightRoot2: {fileID: 0}
   speed: 2
+  meetWaitTime: 3
 --- !u!4 &1319034214
 Transform:
   m_ObjectHideFlags: 0
@@ -13539,6 +13544,7 @@ MonoBehaviour:
   pointA: {fileID: 785796209}
   pointB: {fileID: 2030948445}
   speed: 4
+  waitTime: 3
 --- !u!1 &1468390985
 GameObject:
   m_ObjectHideFlags: 0
