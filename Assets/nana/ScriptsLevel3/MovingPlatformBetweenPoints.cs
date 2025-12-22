@@ -1,40 +1,66 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class MovingPlatformBetweenPoints : MonoBehaviour
 {
-    public Transform pointA;    // จุดเริ่มต้น (ลาก GameObject ที่ต้องการใน Inspector)
-    public Transform pointB;    // จุดปลายทาง
-    public float speed = 2f;    // ความเร็วเคลื่อนที่
+    public Transform pointA;        // 起点
+    public Transform pointB;        // 终点
+    public float speed = 2f;        // 移动速度
+    public float waitTime = 3f;     // 端点停留时间（秒）
 
-    private Vector3 targetPos;  // ตำแหน่งที่กำลังเคลื่อนที่ไป
-    private Vector3 startPos;
+    private Vector3 targetPos;      // 当前目标点
+    private bool isWaiting = false; // 是否在等待
 
     void Start()
     {
-        startPos = pointA.position;  // เริ่มที่จุด A
-        targetPos = pointB.position; // เคลื่อนที่ไป B ก่อน
-        transform.position = startPos;
+        if (pointA == null || pointB == null)
+        {
+            Debug.LogError("请在 Inspector 中绑定 pointA 和 pointB");
+            enabled = false;
+            return;
+        }
+
+        transform.position = pointA.position;
+        targetPos = pointB.position;
     }
 
     void Update()
     {
-        // เคลื่อนที่ไปหาตำแหน่ง targetPos ด้วยความเร็วที่กำหนด
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        if (isWaiting) return;
 
-        // ถ้าไปถึง targetPos แล้ว ให้สลับเป้าหมาย
+        // 向目标点移动
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPos,
+            speed * Time.deltaTime
+        );
+
+        // 到达端点
         if (Vector3.Distance(transform.position, targetPos) < 0.01f)
         {
-            if (targetPos == pointB.position)
-                targetPos = pointA.position;
-            else
-                targetPos = pointB.position;
+            StartCoroutine(WaitAndSwitch());
         }
     }
 
-    // ให้ผู้เล่น/เงาติดตามแพลตฟอร์ม
+    IEnumerator WaitAndSwitch()
+    {
+        isWaiting = true;
+
+        yield return new WaitForSeconds(waitTime);
+
+        // 切换目标点
+        targetPos = (targetPos == pointA.position)
+            ? pointB.position
+            : pointA.position;
+
+        isWaiting = false;
+    }
+
+    // 让角色跟随平台移动
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Shadow"))
+        if (collision.collider.CompareTag("Player") ||
+            collision.collider.CompareTag("Shadow"))
         {
             collision.collider.transform.SetParent(transform);
         }
@@ -42,7 +68,8 @@ public class MovingPlatformBetweenPoints : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Shadow"))
+        if (collision.collider.CompareTag("Player") ||
+            collision.collider.CompareTag("Shadow"))
         {
             collision.collider.transform.SetParent(null);
         }
