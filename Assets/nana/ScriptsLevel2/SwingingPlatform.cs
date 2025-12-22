@@ -20,6 +20,14 @@ public class SwingingPlatform : MonoBehaviour
 
     void Start()
     {
+        if (SpotlightRoot1 == null || SpotlightRoot2 == null)
+        {
+            Debug.LogError("请在 Inspector 中绑定 SpotlightRoot1 和 SpotlightRoot2");
+            enabled = false;
+            return;
+        }
+
+        // 原来的 Start 代码……
         startPos1 = SpotlightRoot1.position;
         startPos2 = SpotlightRoot2.position;
 
