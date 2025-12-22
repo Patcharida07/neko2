@@ -6867,7 +6867,7 @@ Transform:
   m_GameObject: {fileID: 785796208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.84, y: -4.66, z: -0.09552191}
+  m_LocalPosition: {x: 20.88, y: -4.55, z: -0.09552191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7692,8 +7692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86517306b958da041a4d27ada213afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpotlightRoot1: {fileID: 0}
-  SpotlightRoot2: {fileID: 0}
+  SpotlightRoot1: {fileID: 1319034214}
+  SpotlightRoot2: {fileID: 890702769}
   speed: 2
   meetWaitTime: 3
 --- !u!4 &890702769
@@ -7705,7 +7705,7 @@ Transform:
   m_GameObject: {fileID: 890702767}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.78, y: 1.33, z: -0.18723488}
+  m_LocalPosition: {x: 50.21, y: 1.33, z: -0.18723488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11713,8 +11713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86517306b958da041a4d27ada213afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpotlightRoot1: {fileID: 0}
-  SpotlightRoot2: {fileID: 0}
+  SpotlightRoot1: {fileID: 1319034214}
+  SpotlightRoot2: {fileID: 890702769}
   speed: 2
   meetWaitTime: 3
 --- !u!4 &1319034214
@@ -11726,7 +11726,7 @@ Transform:
   m_GameObject: {fileID: 1319034212}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.76, y: 1.33, z: -0.18723488}
+  m_LocalPosition: {x: 43.36, y: 1.33, z: -0.18723488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18030,7 +18030,7 @@ Transform:
   m_GameObject: {fileID: 2030948444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.59, y: -4.7, z: -0.09552191}
+  m_LocalPosition: {x: 23.57, y: -4.52, z: -0.09552191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18390,7 +18390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2046967746
 SpriteRenderer:
   m_ObjectHideFlags: 0
