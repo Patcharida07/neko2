@@ -16,5 +16,15 @@ public class KeyPickup3 : MonoBehaviour
                 Destroy(targetToUnlock); // ลบกล่องออกจากฉาก
             }
         }
+        if (other.CompareTag("Shadow"))
+        {
+            Debug.Log("เก็บกุญแจแล้ว!");
+            Destroy(gameObject); // ลบกุญแจ
+
+            if (targetToUnlock != null)
+            {
+                Destroy(targetToUnlock); // ลบกล่องออกจากฉาก
+            }
+        }
     }
 }

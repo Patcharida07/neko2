@@ -10027,7 +10027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3928930408203819457, guid: bf579400aef8eab4dbf2c1cb82b4bd6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.89
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3928930408203819457, guid: bf579400aef8eab4dbf2c1cb82b4bd6c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11797,6 +11797,7 @@ MonoBehaviour:
   - {fileID: 786928809}
   - {fileID: 1561964881}
   speed: 2
+  waitTime: 3
 --- !u!61 &1293906177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14478,8 +14479,8 @@ Transform:
   m_GameObject: {fileID: 1606194033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.49, y: -8.58, z: 0}
-  m_LocalScale: {x: 0.9459009, y: 0.9459009, z: 0.9459009}
+  m_LocalPosition: {x: 62.49, y: -9.05, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
