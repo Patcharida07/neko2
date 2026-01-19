@@ -6611,6 +6611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074127507}
   - component: {fileID: 1074127506}
+  - component: {fileID: 1074127508}
   m_Layer: 0
   m_Name: Final
   m_TagString: Untagged
@@ -6688,6 +6689,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074127508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074127505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72aa415af6020343a90c4b743cba5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: 4levels
 --- !u!1 &1081650412
 GameObject:
   m_ObjectHideFlags: 0
