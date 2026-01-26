@@ -18,6 +18,16 @@ public class LevelsButton : MonoBehaviour
         Debug.Log("3");
         SceneManager.LoadScene("Level3");
     }
+    public void siGameBotton()
+    {
+        Debug.Log("4");
+        SceneManager.LoadScene("Level4");
+    }
+    public void wuGameBotton()
+    {
+        Debug.Log("5");
+        SceneManager.LoadScene("Level5");
+    }
     public void returnButton()
     {
         Debug.Log("return");
