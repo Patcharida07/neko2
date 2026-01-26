@@ -8351,7 +8351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upPos: {fileID: 2035221740}
   downPos: {fileID: 1834301594}
-  speed: 1
+  speed: 0.5
 --- !u!212 &1346290120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13461,22 +13461,13 @@ SceneRoots:
   - {fileID: 708392966}
   - {fileID: 1547525639}
   - {fileID: 1346290121}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  - {fileID: 2035221740}
-  - {fileID: 1834301594}
-=======
-=======
->>>>>>> Stashed changes
-  - {fileID: 1829997909}
-  - {fileID: 1942703721}
-  - {fileID: 1499278469}
   - {fileID: 468106724}
   - {fileID: 586599447}
-  - {fileID: 1386199197}
   - {fileID: 1101772173}
+  - {fileID: 1386199197}
+  - {fileID: 1499278469}
+  - {fileID: 1829997909}
+  - {fileID: 1834301594}
   - {fileID: 1896158449}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+  - {fileID: 1942703721}
+  - {fileID: 2035221740}
