@@ -20,12 +20,19 @@ public class MovePlatform5 : MonoBehaviour
     void Update()
     {
         Transform target = isUp ? upPos : downPos;
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.position,
             speed * Time.deltaTime
         );
+
+        if (Vector3.Distance(transform.position, target.position) < 0.01f)
+        {
+            isUp = !isUp;
+        }
     }
+
 
     public void ToggleMove()
     {
