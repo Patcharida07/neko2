@@ -1,28 +1,28 @@
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class SwitchForPlayer5 : MonoBehaviour
 {
-    public GameObject doorLight;
+    public DoorLightController5 controller;
+    private bool canPress;
 
-    private bool playerInside = false;
+    void Update()
+    {
+        if (canPress && Input.GetKeyDown(KeyCode.E))
+        {
+            controller.ActivateLeft();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            playerInside = true;
+            canPress = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            playerInside = false;
-    }
-
-    void Update()
-    {
-        if (playerInside && Input.GetKeyDown(KeyCode.E))
-        {
-            doorLight.SetActive(true);
-        }
+            canPress = false;
     }
 }
