@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 
 public class SwitchForPlayer5 : MonoBehaviour
 {
+    public Light2D rightLight;
     public DoorLightController5 controller;
     private bool canPress;
 

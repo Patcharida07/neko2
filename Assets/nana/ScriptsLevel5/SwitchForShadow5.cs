@@ -22,7 +22,7 @@ public class SwitchForShadow5 : MonoBehaviour
             controller.ActivateRight();
         }
         //Tan
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             rightLight.enabled = true;
         }
