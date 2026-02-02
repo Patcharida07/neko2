@@ -37,8 +37,12 @@ public class GameUIManager : MonoBehaviour
     public void OnRestart()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.ResetGameState();
+
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().name
         );
     }
 

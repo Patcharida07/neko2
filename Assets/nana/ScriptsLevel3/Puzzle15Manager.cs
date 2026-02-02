@@ -116,17 +116,23 @@ public class Puzzle15Manager : MonoBehaviour
 
     void CheckWin()
     {
-        for (int i = 0; i < tiles.Count - 1; i++)
-        {
-            if (tiles[i] == null) return;
-            if (tiles[i].isEmpty) return;
-            if (tiles[i].number != i + 1) return;
-        }
+        //for (int i = 0; i < tiles.Count - 1; i++)
+        //{
+        //    if (tiles[i] == null) return;
+        //    if (tiles[i].isEmpty) return;
+        //    if (tiles[i].number != i + 1) return;
+        //}
 
-        Debug.Log("You Win!");
+        //Debug.Log("You Win!");
+        //if (GameManager.Instance != null)
+        //    GameManager.Instance.puzzleCompleted = true;
+
+        //SceneManager.LoadScene("Level3");
         if (GameManager.Instance != null)
+        {
             GameManager.Instance.puzzleCompleted = true;
-
+            GameManager.Instance.hasSavedPos = false; // ⭐ สำคัญ
+        }
         SceneManager.LoadScene("Level3");
     }
 }
