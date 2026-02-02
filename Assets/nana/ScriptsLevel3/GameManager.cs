@@ -31,4 +31,29 @@ public class GameManager : MonoBehaviour
         lastRealPos = Vector3.zero;
         lastShadowPos = Vector3.zero;
     }
+
+    public void ResetForRestartLevel()
+    {
+        // รีเซตทั้งด่าน
+        puzzleCompleted = false;
+        hasSavedPos = false;
+        lastRealPos = Vector3.zero;
+        lastShadowPos = Vector3.zero;
+    }
+
+    public void ResetForRetryPuzzle()
+    {
+        // รีเซตเฉพาะ puzzle
+        puzzleCompleted = false;
+        // ยังเก็บตำแหน่งผู้เล่นไว้
+    }
+
+    public void ResetForNewGame()
+    {
+        // รีเซตทั้งเกม
+        puzzleCompleted = false;
+        hasSavedPos = false;
+        lastRealPos = Vector3.zero;
+        lastShadowPos = Vector3.zero;
+    }
 }
