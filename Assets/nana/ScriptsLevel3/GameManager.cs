@@ -23,4 +23,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void ResetGameState()
+    {
+        puzzleCompleted = false;
+        hasSavedPos = false;
+        lastRealPos = Vector3.zero;
+        lastShadowPos = Vector3.zero;
+    }
 }
