@@ -44,6 +44,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/rinkinnetsu/01/wanfa.unity
     guid: 1bef99dfb53c4e545983441adfe7c484
+  - enabled: 1
+    path: Assets/rinkinnetsu/01/3levels.unity
+    guid: fe4ff61fb4825d0428621049f8f736df
+  - enabled: 1
+    path: Assets/rinkinnetsu/01/4levels.unity
+    guid: fba2a0bb7113ef54091efc546959b021
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
