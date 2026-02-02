@@ -9131,7 +9131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAmplitude: 3
-  moveSpeed: 0.5
+  moveSpeed: 2
   waitTime: 3
 --- !u!4 &1041384970
 Transform:
