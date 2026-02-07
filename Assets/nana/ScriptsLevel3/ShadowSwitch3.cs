@@ -29,7 +29,15 @@ public class ShadowSwitch3 : MonoBehaviour
     {
         if (canActivate && Input.GetKeyDown(activateKey))
         {
-            lift.ActivateLift(); // เรียกลิฟต์
+            // ⭐ เช็คก่อนว่าผู้เล่นอยู่บนลิฟต์ไหม
+            if (lift.playerOnLift)
+            {
+                lift.ActivateLift();
+            }
+            else
+            {
+                Debug.Log("❌ Player is not on the lift yet!");
+            }
         }
     }
 }

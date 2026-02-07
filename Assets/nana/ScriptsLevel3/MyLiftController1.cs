@@ -9,6 +9,7 @@ public class MyLiftController1 : MonoBehaviour
     public string nextSceneName;
 
     private bool isMoving = false;
+    public bool playerOnLift = false;//ตัวตรวจ Player บนลิฟต์
 
     void Update()
     {
@@ -34,6 +35,26 @@ public class MyLiftController1 : MonoBehaviour
             Debug.Log("▶ Elevator activated!");
         }
     }
+
+    // ⭐ ตรวจว่าผู้เล่นขึ้นลิฟต์
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerOnLift = true;
+            Debug.Log("🧍 Player on lift");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerOnLift = false;
+            Debug.Log("🧍 Player left lift");
+        }
+    }
+
 
     void LoadNextScene()
     {
