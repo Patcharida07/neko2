@@ -7,6 +7,12 @@ public class GoalDoor5 : MonoBehaviour
 
     private bool playerInside = false;
     private bool shadowInside = false;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,10 +23,15 @@ public class GoalDoor5 : MonoBehaviour
 
         if (other.CompareTag("Shadow"))
             shadowInside = true;
-
         if (playerInside && shadowInside)
         {
             Debug.Log("GAME CLEAR");
+            animator.SetTrigger("open");
+            Invoke(nameof(ClearGame), 1.5f);
+        }
+
+        void ClearGame()
+        {
             SceneManager.LoadScene("5Congratulation");
         }
     }

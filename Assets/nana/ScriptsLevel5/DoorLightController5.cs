@@ -10,6 +10,7 @@ public class DoorLightController5 : MonoBehaviour
     public Light2D lightRight;
 
     public Collider2D doorCollider;
+    public GameObject finalDoor;
 
     private bool leftOpened = false;
     private bool rightOpened = false;
@@ -23,6 +24,7 @@ public class DoorLightController5 : MonoBehaviour
         lightRight.enabled = false;
 
         doorCollider.enabled = false;
+        finalDoor.SetActive(false);
 
         Debug.Log("Force lights OFF");
     }
@@ -35,7 +37,7 @@ public class DoorLightController5 : MonoBehaviour
     {
         if (leftOpened) return;
 
-        Debug.Log("LEFT OPEN BY CONTROLLER");
+        Debug.Log("LEFT ONLY");
 
         leftOpened = true;
         lightLeft.enabled = true;
@@ -48,7 +50,7 @@ public class DoorLightController5 : MonoBehaviour
     {
         if (rightOpened) return;
 
-        Debug.Log("RIGHT OPEN BY CONTROLLER");
+        Debug.Log("RIGHT ONLY");
 
         rightOpened = true;
         lightRight.enabled = true;
@@ -63,9 +65,14 @@ public class DoorLightController5 : MonoBehaviour
         if (leftOpened && rightOpened)
         {
             doorCollider.enabled = true;
+
+            if (finalDoor != null)
+                finalDoor.SetActive(true);
+
             Debug.Log("🚪 Door UNLOCKED");
         }
     }
+
 
 
 }
