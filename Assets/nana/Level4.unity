@@ -20656,7 +20656,7 @@ MonoBehaviour:
   target: {fileID: 1155600588}
   smoothSpeed: 5
   fixedZ: -10
-  baseOffset: {x: 0, y: 0, z: 0}
+  baseOffset: {x: 0, y: -2, z: 0}
   limitX: 1
   minX: 0
   maxX: 30
