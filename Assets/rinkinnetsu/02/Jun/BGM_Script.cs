@@ -11,14 +11,9 @@ public class BGM_Script : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-
             audioSource = GetComponent<AudioSource>();
             audioSource.loop = true;
             audioSource.Play();
-
-            // 🔥 强制确保 Listener 是开的
-            AudioListener.pause = false;
-            AudioListener.volume = 1f;
         }
         else
         {
@@ -26,10 +21,9 @@ public class BGM_Script : MonoBehaviour
         }
     }
 
-    // Slider 只调全局音量
     public void SetVolume(float value)
     {
-        AudioListener.volume = Mathf.Max(value, 0.0001f);
+        AudioListener.volume = Mathf.Clamp(value, 0f, 1f);
     }
 
     public float GetVolume()
