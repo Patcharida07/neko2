@@ -3,7 +3,6 @@
 public class BGM_Script : MonoBehaviour
 {
     public static BGM_Script instance;
-
     private AudioSource audioSource;
 
     private void Awake()
@@ -14,6 +13,12 @@ public class BGM_Script : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             audioSource = GetComponent<AudioSource>();
+            audioSource.loop = true;
+            audioSource.Play();
+
+            // 🔥 强制确保 Listener 是开的
+            AudioListener.pause = false;
+            AudioListener.volume = 1f;
         }
         else
         {
@@ -21,15 +26,14 @@ public class BGM_Script : MonoBehaviour
         }
     }
 
-    // 给 Slider 调用的方法
+    // Slider 只调全局音量
     public void SetVolume(float value)
     {
-        audioSource.volume = value;
+        AudioListener.volume = Mathf.Max(value, 0.0001f);
     }
 
-    // 如果你想让 Slider 读取当前音量
     public float GetVolume()
     {
-        return audioSource.volume;
+        return AudioListener.volume;
     }
 }
