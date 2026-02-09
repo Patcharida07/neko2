@@ -1,20 +1,47 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GoalDoor5 : MonoBehaviour
 {
-    public GameObject lightA;
-    public GameObject lightB;
+    public DoorLightController5 controller;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private bool playerInside = false;
+    private bool shadowInside = false;
+    private Animator animator;
+
+    void Start()
     {
-        if (!lightA.activeSelf || !lightB.activeSelf)
-            return;
+        animator = GetComponent<Animator>();
+    }
 
-        if (other.CompareTag("Player") || other.CompareTag("Shadow"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!controller.IsDoorUnlocked()) return;
+
+        if (other.CompareTag("Player"))
+            playerInside = true;
+
+        if (other.CompareTag("Shadow"))
+            shadowInside = true;
+        if (playerInside && shadowInside)
         {
             Debug.Log("GAME CLEAR");
+            animator.SetTrigger("open");
+            Invoke(nameof(ClearGame), 1.5f);
+        }
+
+        void ClearGame()
+        {
             SceneManager.LoadScene("5Congratulation");
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            playerInside = false;
+
+        if (other.CompareTag("Shadow"))
+            shadowInside = false;
     }
 }

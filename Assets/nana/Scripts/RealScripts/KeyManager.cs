@@ -18,7 +18,9 @@ public class KeyManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+
+            transform.SetParent(null);   // 👈 สำคัญมาก
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
