@@ -16,7 +16,7 @@ public class GoalDoor5 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!controller.IsDoorUnlocked()) return;
+        //if (!controller.IsDoorUnlocked()) return;
 
         if (other.CompareTag("Player"))
             playerInside = true;
