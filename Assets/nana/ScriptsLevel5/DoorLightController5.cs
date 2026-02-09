@@ -32,6 +32,9 @@ public class DoorLightController5 : MonoBehaviour
 
         lightLeft.enabled = true;
         doorLeft.SetActive(true);
+        //Tan
+        leftOpened = true;   
+        CheckDoor();          
     }
 
     public void ActivateRight()
@@ -40,6 +43,9 @@ public class DoorLightController5 : MonoBehaviour
 
         lightRight.enabled = true;
         doorRight.SetActive(true);
+        //Tan
+        rightOpened = true;  // Tan
+        CheckDoor();         // Tan
     }
 
     void CheckDoor()

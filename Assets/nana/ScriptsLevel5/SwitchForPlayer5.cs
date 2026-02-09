@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-
 public class SwitchForPlayer5 : MonoBehaviour
 {
     public Light2D rightLight;
@@ -14,6 +13,8 @@ public class SwitchForPlayer5 : MonoBehaviour
         {
             controller.ActivateLeft();
         }
+
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
