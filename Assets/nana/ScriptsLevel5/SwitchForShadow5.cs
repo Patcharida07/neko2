@@ -7,8 +7,11 @@ public class SwitchForShadow5 : MonoBehaviour
 
     void Update()
     {
-        if (canPress && Input.GetKeyDown(KeyCode.E))
+        if (!canPress) return;
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Switch pressed");
             controller.ActivateRight();
         }
     }

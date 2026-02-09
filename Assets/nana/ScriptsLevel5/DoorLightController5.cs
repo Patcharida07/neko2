@@ -9,70 +9,52 @@ public class DoorLightController5 : MonoBehaviour
     public Light2D lightLeft;
     public Light2D lightRight;
 
-    public Collider2D doorCollider;
-    public GameObject finalDoor;
+    public Collider2D doorCollider; // 👈 ประตูจริง
 
     private bool leftOpened = false;
     private bool rightOpened = false;
 
-    void Awake()
+    void Start()
     {
+        // ❌ ซ่อนทุกอย่าง
         doorLeft.SetActive(false);
         doorRight.SetActive(false);
 
         lightLeft.enabled = false;
         lightRight.enabled = false;
 
-        doorCollider.enabled = false;
-        finalDoor.SetActive(false);
-
-        Debug.Log("Force lights OFF");
+        doorCollider.enabled = false; // 🚫 ยังผ่านไม่ได้
     }
 
-    public bool IsDoorUnlocked()
-    {
-        return leftOpened && rightOpened;
-    }
     public void ActivateLeft()
     {
-        if (leftOpened) return;
+        Debug.Log("Activate LEFT");
 
-        Debug.Log("LEFT ONLY");
-
-        leftOpened = true;
         lightLeft.enabled = true;
         doorLeft.SetActive(true);
-
-        CheckDoor();
+        //Tan
+        leftOpened = true;   
+        CheckDoor();          
     }
 
     public void ActivateRight()
     {
-        if (rightOpened) return;
+        Debug.Log("Activate RIGHT");
 
-        Debug.Log("RIGHT ONLY");
-
-        rightOpened = true;
         lightRight.enabled = true;
         doorRight.SetActive(true);
-
-        CheckDoor();
+        //Tan
+        rightOpened = true;  // Tan
+        CheckDoor();         // Tan
     }
-
 
     void CheckDoor()
     {
+        // 🔓 เปิดครบสองฝั่ง
         if (leftOpened && rightOpened)
         {
             doorCollider.enabled = true;
-
-            if (finalDoor != null)
-                finalDoor.SetActive(true);
-
-            Debug.Log("🚪 Door UNLOCKED");
+            Debug.Log("Door UNLOCKED");
         }
     }
-
-
-
 }
