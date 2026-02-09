@@ -10981,7 +10981,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957511512}
+        m_TargetAssemblyTypeName: BGM_Script, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1247821549
 GameObject:
   m_ObjectHideFlags: 0
@@ -18305,6 +18317,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 718c22eab8b9cc2439f40529871fc19f, type: 3}
+--- !u!114 &1957511512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6040777290021037613, guid: 718c22eab8b9cc2439f40529871fc19f, type: 3}
+  m_PrefabInstance: {fileID: 1957511511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540903dd2cce61046ba9402a47913891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1964429545
 GameObject:
   m_ObjectHideFlags: 0
