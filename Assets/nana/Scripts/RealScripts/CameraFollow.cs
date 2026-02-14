@@ -17,7 +17,12 @@ public class CameraFollow : MonoBehaviour
     private Vector3 extraOffset = Vector3.zero;
     private Vector3 zoneOffset = Vector3.zero;
     private bool shadowInZone = false;
+    private WorldSwitcher worldSwitcher;
 
+    void Start()
+    {
+        worldSwitcher = FindObjectOfType<WorldSwitcher>();
+    }
     void LateUpdate()
     {
         if (target == null) return;
@@ -36,6 +41,12 @@ public class CameraFollow : MonoBehaviour
             desiredPosition,
             smoothSpeed * Time.deltaTime
         );
+
+        if (target == null && worldSwitcher != null)
+        {
+            target = worldSwitcher.GetActivePlayer();
+            if (target == null) return;
+        }
     }
 
     public void SetTarget(Transform newTarget)

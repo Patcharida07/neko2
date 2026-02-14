@@ -3,13 +3,13 @@ using System.Collections;
 
 public class LiftController : MonoBehaviour
 {
-    public Transform[] waypoints;   // 上下移动的点
+    public Transform[] waypoints;
     public float speed = 5f;
-    public float waitTime = 3f;     // ⭐ 端点停留时间（秒）
+    public float waitTime = 3f;
 
     private int currentWaypoint = 0;
-    private bool isActive = false;  // 电梯是否启用
-    private bool isWaiting = false; // ⭐ 是否正在停留
+    private bool isActive = false;
+    private bool isWaiting = false;
 
     void FixedUpdate()
     {
@@ -23,7 +23,6 @@ public class LiftController : MonoBehaviour
             speed * Time.fixedDeltaTime
         );
 
-        // 到达 waypoint
         if (Vector2.Distance(transform.position, targetPos) < 0.05f)
         {
             StartCoroutine(WaitAtWaypoint());
@@ -33,38 +32,49 @@ public class LiftController : MonoBehaviour
     IEnumerator WaitAtWaypoint()
     {
         isWaiting = true;
-
-        // ⭐ 在端点停留
         yield return new WaitForSeconds(waitTime);
 
-        // 切换到下一个 waypoint
         currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
-
         isWaiting = false;
     }
 
-    // 开关电梯
     public void Toggle()
     {
         isActive = !isActive;
         Debug.Log(isActive ? "ลิฟต์เปิดทำงาน" : "ลิฟต์ปิดแล้ว");
     }
 
-    // 玩家站在电梯上 → 跟随移动
+    // =============================
+    // ขึ้นลิฟต์
+    // =============================
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") ||
+            collision.gameObject.CompareTag("Shadow"))
         {
             collision.transform.SetParent(transform);
         }
     }
 
-    // 玩家离开电梯
+    // =============================
+    // ลงลิฟต์
+    // =============================
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") ||
+            collision.gameObject.CompareTag("Shadow"))
         {
-            collision.transform.SetParent(null);
+            StartCoroutine(DetachNextFrame(collision.transform));
+        }
+    }
+
+    IEnumerator DetachNextFrame(Transform t)
+    {
+        yield return null; // ⭐ รอ 1 เฟรม
+
+        if (t != null && t.gameObject.activeInHierarchy)
+        {
+            t.SetParent(null);
         }
     }
 }

@@ -8,6 +8,11 @@ public class WorldSwitcher : MonoBehaviour
 
     private bool isControllingReal = true;
 
+    public Transform GetActivePlayer()
+    {
+        return isControllingReal ? realPlayer.transform : shadowPlayer.transform;
+    }
+
     void Start()
     {
         if (cameraFollow == null)
@@ -16,10 +21,17 @@ public class WorldSwitcher : MonoBehaviour
         realPlayer.SetActive(true);
         shadowPlayer.SetActive(true);
 
-        // ---------------------------
-        // RESTORE POSITION FIX
-        // ---------------------------
-        if (GameManager.Instance != null && GameManager.Instance.hasSavedPos)
+        // ==============================
+        // หา Spawn ของด่าน
+        // ==============================
+        GameObject spawn = GameObject.Find("SpawnPoint");
+
+        if (spawn != null)
+        {
+            realPlayer.transform.position = spawn.transform.position;
+            shadowPlayer.transform.position = spawn.transform.position + Vector3.right * 1.5f;
+        }
+        else if (GameManager.Instance != null && GameManager.Instance.hasSavedPos)
         {
             realPlayer.transform.position = GameManager.Instance.lastRealPos;
             shadowPlayer.transform.position = GameManager.Instance.lastShadowPos;
@@ -34,7 +46,6 @@ public class WorldSwitcher : MonoBehaviour
 
         cameraFollow?.SetTarget(realPlayer.transform);
 
-        // Prevent collision between real & shadow
         Collider2D realCol = realPlayer.GetComponent<Collider2D>();
         Collider2D shadowCol = shadowPlayer.GetComponent<Collider2D>();
         if (realCol != null && shadowCol != null)
