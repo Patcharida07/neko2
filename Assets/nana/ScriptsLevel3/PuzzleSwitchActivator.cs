@@ -16,11 +16,9 @@ public class PuzzleSwitchActivator : MonoBehaviour
 
             if (totalCollected >= requiredNumbers)
             {
-                // รีเซ็ต flag ก่อนเข้า puzzle
                 if (GameManager.Instance != null)
                     GameManager.Instance.puzzleCompleted = false;
 
-                // บันทึกตำแหน่งผู้เล่น
                 GameObject real = GameObject.FindWithTag("Player");
                 GameObject shadow = GameObject.FindWithTag("Shadow");
 
@@ -29,9 +27,9 @@ public class PuzzleSwitchActivator : MonoBehaviour
                     GameManager.Instance.lastRealPos = real.transform.position;
                     GameManager.Instance.lastShadowPos = shadow.transform.position;
                     GameManager.Instance.hasSavedPos = true;
+                    GameManager.Instance.comingFromPuzzle = true;
                 }
 
-                // โหลด Puzzle Scene
                 SceneManager.LoadScene("NewPuzzle");
             }
         }

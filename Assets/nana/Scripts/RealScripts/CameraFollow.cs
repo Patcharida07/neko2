@@ -67,4 +67,9 @@ public class CameraFollow : MonoBehaviour
         if (target != null && target.CompareTag("Shadow"))
             extraOffset = insideZone ? zoneOffset : Vector3.zero;
     }
+
+    void OnEnable()
+    {
+        target = GameObject.FindGameObjectWithTag("Player")?.transform;
+    }
 }

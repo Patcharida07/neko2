@@ -3,44 +3,47 @@ using UnityEngine.SceneManagement;
 
 public class Congratulation31 : MonoBehaviour
 {
-    // 🔁 Restart ด่าน 3 ใหม่หมด
     public void ReplayGameButtonn()
     {
-        Debug.Log("Restart Level 3");
-
         if (GameManager.Instance != null)
             GameManager.Instance.ResetForRestartLevel();
-
         SceneManager.LoadScene("Level3");
     }
 
-     //🎮 Retry Puzzle(ผู้เล่นอยู่จุดเดิม)
     public void RetryPuzzleButton()
     {
-        Debug.Log("Retry Puzzle");
-
         if (GameManager.Instance != null)
+        {
             GameManager.Instance.ResetForRetryPuzzle();
 
+            GameManager.Instance.hasSavedPos = true;
+            GameManager.Instance.comingFromPuzzle = true;
+
+            GameObject real = GameObject.FindWithTag("Player");
+            GameObject shadow = GameObject.FindWithTag("Shadow");
+            if (real != null && shadow != null)
+            {
+                GameManager.Instance.lastRealPos = real.transform.position;
+                GameManager.Instance.lastShadowPos = shadow.transform.position;
+            }
+        }
         SceneManager.LoadScene("NewPuzzle");
     }
 
-    // ➡️ ไปด่านถัดไป
     public void NextlevelGameButton()
     {
-        Debug.Log("Next Level");
-
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.hasSavedPos = false;
+            GameManager.Instance.comingFromPuzzle = false;
+        }
         SceneManager.LoadScene("Level4");
     }
 
-    // 🏠 Restart ทั้งเกม (กลับ Start)
     public void returnButton()
     {
-        Debug.Log("Restart Whole Game");
-
         if (GameManager.Instance != null)
             GameManager.Instance.ResetForNewGame();
-
         SceneManager.LoadScene("Start");
     }
 }

@@ -39,7 +39,7 @@ public class GameUIManager : MonoBehaviour
         Time.timeScale = 1f;
 
         if (GameManager.Instance != null)
-            GameManager.Instance.ResetGameState();
+            GameManager.Instance.ResetForNewGame();
 
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().name

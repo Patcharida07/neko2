@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform groundCheck;
-    public float groundCheckRadius = 0.15f;
+    public float groundCheckRadius = 0.25f;
 
     [Header("Debug")]
     public bool isGrounded = false; // Show in Inspector
@@ -91,23 +91,27 @@ public class PlayerController : MonoBehaviour
             ? new string[] { "Ground", "PushableBox", "ShadowBox", "Lift", "ShadowGround" }
             : new string[] { "Ground", "RealBox", "ShadowBox", "Lift", "ShadowGround" };
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            groundCheck.position,
+            groundCheckRadius
+        );
+
         isGrounded = false;
 
         foreach (var hit in hits)
         {
+            // ❗ ข้าม collider ตัวเอง
+            if (hit.gameObject == gameObject)
+                continue;
+
             foreach (var tag in tagsToCheck)
             {
                 if (hit.CompareTag(tag))
                 {
-                    if (hit.bounds.max.y <= groundCheck.position.y + 0.05f) // tolerance
-                    {
-                        isGrounded = true;
-                        break;
-                    }
+                    isGrounded = true;
+                    return; // เจอพื้นแล้วพอเลย
                 }
             }
-            if (isGrounded) break;
         }
     }
 

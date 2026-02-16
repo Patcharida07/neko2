@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class WorldSwitcher : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class WorldSwitcher : MonoBehaviour
         return isControllingReal ? realPlayer.transform : shadowPlayer.transform;
     }
 
-    void Start()
+    IEnumerator Start()
     {
         if (cameraFollow == null)
             cameraFollow = Camera.main.GetComponent<CameraFollow>();
@@ -21,25 +22,38 @@ public class WorldSwitcher : MonoBehaviour
         realPlayer.SetActive(true);
         shadowPlayer.SetActive(true);
 
-        // ==============================
-        // หา Spawn ของด่าน
-        // ==============================
-        GameObject spawn = GameObject.Find("SpawnPoint");
+        Rigidbody2D rb1 = realPlayer.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2 = shadowPlayer.GetComponent<Rigidbody2D>();
 
-        if (spawn != null)
-        {
-            realPlayer.transform.position = spawn.transform.position;
-            shadowPlayer.transform.position = spawn.transform.position + Vector3.right * 1.5f;
-        }
-        else if (GameManager.Instance != null && GameManager.Instance.hasSavedPos)
+        rb1.simulated = false;
+        rb2.simulated = false;
+
+        yield return null;
+
+        // Spawn จากตำแหน่งเดิมถ้ามากลับจาก puzzle
+        if (GameManager.Instance != null
+            && GameManager.Instance.hasSavedPos
+            && GameManager.Instance.comingFromPuzzle)
         {
             realPlayer.transform.position = GameManager.Instance.lastRealPos;
             shadowPlayer.transform.position = GameManager.Instance.lastShadowPos;
+            GameManager.Instance.comingFromPuzzle = false;
         }
         else
         {
-            shadowPlayer.transform.position = realPlayer.transform.position + Vector3.right * 1.5f;
+            GameObject spawn = GameObject.Find("SpawnPoint");
+            if (spawn != null)
+            {
+                realPlayer.transform.position = spawn.transform.position;
+                shadowPlayer.transform.position = spawn.transform.position + Vector3.right * 1.5f;
+            }
         }
+
+        rb1.linearVelocity = Vector2.zero;
+        rb2.linearVelocity = Vector2.zero;
+
+        rb1.simulated = true;
+        rb2.simulated = true;
 
         SetPlayerControl(realPlayer, true);
         SetPlayerControl(shadowPlayer, false);
@@ -54,24 +68,21 @@ public class WorldSwitcher : MonoBehaviour
 
     void Update()
     {
-        // SPACE = สลับร่าง
         if (Input.GetKeyDown(KeyCode.Q))
         {
             isControllingReal = !isControllingReal;
-            GameObject activePlayer = isControllingReal ? realPlayer : shadowPlayer;
-            GameObject inactivePlayer = isControllingReal ? shadowPlayer : realPlayer;
 
-            SetPlayerControl(activePlayer, true);
-            SetPlayerControl(inactivePlayer, false);
+            GameObject active = isControllingReal ? realPlayer : shadowPlayer;
+            GameObject inactive = isControllingReal ? shadowPlayer : realPlayer;
 
-            cameraFollow?.SetTarget(activePlayer.transform);
+            SetPlayerControl(active, true);
+            SetPlayerControl(inactive, false);
+
+            cameraFollow?.SetTarget(active.transform);
         }
 
-        // R = รีเซ็ตตำแหน่ง
         if (Input.GetKeyDown(KeyCode.R))
-        {
             ResetPlayers();
-        }
     }
 
     void SetPlayerControl(GameObject obj, bool active)
@@ -83,20 +94,18 @@ public class WorldSwitcher : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
-
-            // ❌ อย่าปิดฟิสิกส์ตัวที่ไม่ควบคุม
-            // rb.isKinematic = !active;
-
-            // ✅ ปล่อยให้ Physics ทำงานทั้งคู่
-            // (ตัวที่ไม่ได้บังคับจะหยุดเองเพราะ PlayerController ถูกปิด)
             rb.isKinematic = false;
         }
     }
 
     void ResetPlayers()
     {
-        realPlayer.transform.position = Vector3.zero;
-        shadowPlayer.transform.position = realPlayer.transform.position + Vector3.right * 1.5f;
+        GameObject spawn = GameObject.Find("SpawnPoint");
+        if (spawn != null)
+        {
+            realPlayer.transform.position = spawn.transform.position;
+            shadowPlayer.transform.position = spawn.transform.position + Vector3.right * 1.5f;
+        }
 
         Rigidbody2D rb1 = realPlayer.GetComponent<Rigidbody2D>();
         Rigidbody2D rb2 = shadowPlayer.GetComponent<Rigidbody2D>();
