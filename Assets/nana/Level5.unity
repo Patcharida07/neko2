@@ -9532,7 +9532,7 @@ GameObject:
   - component: {fileID: 1115629598}
   m_Layer: 0
   m_Name: Tile_3_0 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9884,7 +9884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1135413781}
   - component: {fileID: 1135413782}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: Platform_1_0 (15)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -10462,7 +10462,7 @@ GameObject:
   - component: {fileID: 1200852370}
   m_Layer: 0
   m_Name: Tile_3_0 (27)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
